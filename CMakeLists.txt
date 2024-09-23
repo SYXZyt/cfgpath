@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.13)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
+set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 
 project(cfgpath LANGUAGES C CXX)
 
