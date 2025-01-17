@@ -207,10 +207,15 @@ CFGPATH_FUNC void get_user_cache_folder(char *out, unsigned int maxlen, const ch
         return;
     }
 
+    // Start path with the root directory `/`
+    *out = '/';
+    out++;
+
     memcpy(out, home, home_len);
     out += home_len;
     *out = '/';
     out++;
+
     if (config_len)
     {
         memcpy(out, ".cache/", config_len);
@@ -219,6 +224,7 @@ CFGPATH_FUNC void get_user_cache_folder(char *out, unsigned int maxlen, const ch
         *out = '\0';
         mkdir(out_orig, 0755);
     }
+
     memcpy(out, appname, appname_len);
     out += appname_len;
     /* Make the .cache/appname folder if it doesn't already exist */
@@ -228,6 +234,7 @@ CFGPATH_FUNC void get_user_cache_folder(char *out, unsigned int maxlen, const ch
     out++;
     *out = 0;
 }
+
 
 #endif
 
